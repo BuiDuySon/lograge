@@ -6,7 +6,7 @@ module Lograge
         event = LogStash::Event.new(data)
 
         event['message'] = "[#{data[:status]}] #{data[:method]} #{data[:path]} (#{data[:controller]}##{data[:action]})"
-        p data.to_s
+        event['method'] = "#{data[:method]}"
         event.to_json
       end
 
